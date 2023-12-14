@@ -1,0 +1,78 @@
+create database Academy;
+
+
+use Academy;
+
+
+
+
+create table Groups(
+	Id int primary key identity,
+	Group_name nvarchar(10) NOT NULL UNIQUE,
+	Rating int,
+	Year_group int CHECK(Year_group > 0 AND Year_group <=5) NOT NULL UNIQUE
+);
+
+
+
+create table Departments(
+	Id int primary key identity,
+	Financing money CHECK(Financing > 0) NOT NULL,
+	Name nvarchar(100) NOT NULL UNIQUE
+);
+
+
+
+create table Faculties(
+	Id int primary key identity,
+	Name nvarchar(100) NOT NULL UNIQUE
+);
+
+
+create table Teachers(
+		Id int primary key identity,
+		imployment_data date NOT NULL,
+		Name nvarchar(MAX) NOT NULL,
+		Surname nvarchar(MAX) NOT NULL,
+		Salary_data money NOT NULL UNIQUE,
+		Premium money CHECK(Premium > 0) NOT NULL
+);
+
+
+
+
+INSERT INTO Groups(Group_name, Rating, Year_group )VALUES (N'Step', 4.5, 3);
+INSERT INTO Departments(Financing, Name) VALUES(200, N'Buqalteriya');
+INSERT INTO Faculties(Name)VALUES (N'Computer engineering');
+INSERT INTO Teachers(imployment_data, Name, Surname, Salary_data, Premium) VALUES(N'28.06.2008', N'Khalil', N'Orujlu', 20000, 5000);
+
+
+select *
+from Groups
+
+
+
+select *
+from Departments
+
+
+select * 
+from Faculties
+
+
+select *
+from Teachers
+
+
+
+
+
+
+
+
+
+
+
+
+		
+
